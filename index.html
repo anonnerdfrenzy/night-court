@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Night Court - An All Hallows' Eve Revelry</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.7;
+            color: #f5f1e8;
+            background: 
+                /* Subtle overlay for readability */
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                /* Background image */
+                url('images/Grainy black landscape.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Texture overlay (optional, can be removed if not needed) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+            position: relative;
+            background: 
+                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.4) 0%, transparent 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c8941f, #e6bc3a, #c8941f, transparent);
+            box-shadow: 0 0 20px rgba(255, 180, 80, 0.6);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c8941f, #e6bc3a, #c8941f, transparent);
+            box-shadow: 0 0 20px rgba(255, 180, 80, 0.6);
+        }
+
+        .event-header {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            text-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
+        }
+
+        .event-header::before,
+        .event-header::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #c8941f;
+            font-size: 0.8rem;
+            animation: candleGlow 8s ease-in-out infinite;
+        }
+
+        .event-header::before {
+            left: -2rem;
+        }
+
+        .event-header::after {
+            right: -2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: #f5f1e8;
+            text-shadow: 
+                0 0 30px rgba(255, 180, 80, 0.6),
+                0 0 60px rgba(255, 200, 100, 0.4),
+                0 0 100px rgba(255, 220, 120, 0.25),
+                0 0 140px rgba(255, 240, 140, 0.15);
+            animation: fadeInUp 1s ease-out 0.2s both, candleGlow 10s ease-in-out infinite;
+            line-height: 1.1;
+            letter-spacing: 4px;
+            position: relative;
+        }
+
+        .hero h1::before {
+            content: '❦ ❦ ❦';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #c8941f;
+            letter-spacing: 1rem;
+            animation: candleGlow 9s ease-in-out infinite;
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            color: #e8dcc0;
+            font-style: italic;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(93, 64, 55, 0.4);
+        }
+
+        .challenge {
+            font-size: 1.5rem;
+            color: #c8941f;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both, candleGlow 12s ease-in-out infinite;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.7),
+                0 0 40px rgba(255, 200, 100, 0.4),
+                0 0 70px rgba(255, 220, 120, 0.25);
+            border: 2px solid #c8941f;
+            padding: 1rem 2rem;
+            border-radius: 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(60, 45, 30, 0.8) 0%, rgba(40, 30, 20, 0.9) 100%);
+            position: relative;
+            display: inline-block;
+            box-shadow: 
+                0 0 25px rgba(255, 180, 80, 0.3),
+                inset 0 0 15px rgba(255, 200, 100, 0.15);
+        }
+
+        .challenge::before,
+        .challenge::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c8941f;
+        }
+
+        .challenge::before {
+            top: -10px;
+            left: -10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .challenge::after {
+            bottom: -10px;
+            right: -10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .story-section {
+            background: 
+                /* Overlay for readability */
+                radial-gradient(ellipse at top, rgba(80, 60, 40, 0.4) 0%, rgba(60, 45, 30, 0.6) 100%),
+                /* Parchment background image */
+                url('images/parchment.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: contrast(1.3) brightness(1.1);
+            backdrop-filter: blur(10px);
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
+            border-radius: 0;
+            padding: 4rem;
+            margin-bottom: 4rem;
+            text-align: left;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.2),
+                0 0 30px rgba(60, 45, 30, 0.8);
+        }
+
+        .story-section::before {
+            content: '◆ ◆ ◆ ◆ ◆';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c8941f;
+            letter-spacing: 1rem;
+            font-size: 0.8rem;
+            animation: candleGlow 11s ease-in-out infinite;
+        }
+
+        .story-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 98%,
+                    rgba(255, 180, 80, 0.1) 99%,
+                    rgba(255, 180, 80, 0.1) 100%
+                );
+            pointer-events: none;
+        }
+
+        .story-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #c8941f;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.7),
+                0 0 40px rgba(255, 200, 100, 0.3);
+            position: relative;
+            animation: candleGlow 10s ease-in-out infinite;
+        }
+
+        .story-section h2::before,
+        .story-section h2::after {
+            content: '❦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #c8941f;
+            animation: candleGlow 9s ease-in-out infinite;
+        }
+
+        .story-section h2::before {
+            left: -3rem;
+        }
+
+        .story-section h2::after {
+            right: -3rem;
+        }
+
+        .story-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            margin-left: 180px;
+            margin-right: 120px;
+            text-align: justify;
+            line-height: 1.8;
+            text-indent: 2rem;
+            color: #d4c4a8;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .story-section p:nth-child(2),
+        .story-section p:nth-child(3),
+        .story-section p:nth-child(4) {
+            margin-right: 70px;
+        }
+
+        .story-section p:last-child {
+            margin-left: 250px;
+            margin-right: 100px;
+        }
+
+
+
+        .houses-section {
+            margin: 4rem 0;
+        }
+
+        .houses-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #c8941f;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.7),
+                0 0 40px rgba(255, 200, 100, 0.3);
+            animation: candleGlow 8s ease-in-out infinite;
+        }
+
+        .houses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .house-card {
+            background: 
+                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%);
+            backdrop-filter: blur(15px);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, #8b4513, #c8941f, #8b4513) 1;
+            padding: 3rem;
+            border-radius: 0;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 30px rgba(255, 180, 80, 0.2),
+                0 10px 30px rgba(60, 45, 30, 0.7);
+        }
+
+        .house-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #c8941f, #e6bc3a, #c8941f, #8b4513);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .house-card::after {
+            content: '◆ ◆ ◆';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c8941f;
+            letter-spacing: 0.5rem;
+            font-size: 0.6rem;
+            opacity: 0.7;
+            animation: candleGlow 12s ease-in-out infinite;
+        }
+
+        .house-card:hover::before {
+            opacity: 1;
+        }
+
+        .house-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-image: linear-gradient(135deg, #e6bc3a, #c8941f, #e6bc3a) 1;
+            box-shadow: 
+                inset 0 0 40px rgba(255, 180, 80, 0.3),
+                0 20px 40px rgba(255, 180, 80, 0.4),
+                0 0 80px rgba(255, 200, 100, 0.25),
+                0 0 120px rgba(255, 220, 120, 0.15);
+        }
+
+        .house-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #c8941f;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 15px rgba(255, 180, 80, 0.7),
+                0 0 30px rgba(255, 200, 100, 0.3);
+            position: relative;
+            margin-top: 1rem;
+            animation: candleGlow 9s ease-in-out infinite;
+        }
+
+        .house-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c8941f, transparent);
+        }
+
+        .house-card p {
+            font-size: 1.1rem;
+            color: #f5f1e8;
+            font-style: italic;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .dress-code {
+            background: 
+                radial-gradient(ellipse at center, rgba(70, 50, 80, 0.7) 0%, rgba(50, 35, 60, 0.85) 100%);
+            backdrop-filter: blur(15px);
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #6b46c1, #c8941f, #6b46c1) 1;
+            border-radius: 0;
+            padding: 4rem;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.2),
+                0 0 40px rgba(50, 35, 60, 0.8);
+        }
+
+        .dress-code::before {
+            content: '❦ ❦ ❦ ❦ ❦ ❦ ❦';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6b46c1;
+            letter-spacing: 1rem;
+            font-size: 0.8rem;
+            animation: candleGlow 10s ease-in-out infinite;
+        }
+
+        .dress-code h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: #c8941f;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.7),
+                0 0 40px rgba(107, 70, 193, 0.4);
+            animation: candleGlow 11s ease-in-out infinite;
+        }
+
+        .dress-code p {
+            font-size: 1.3rem;
+            color: #f5f1e8;
+            line-height: 1.7;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .notice {
+            background: 
+                radial-gradient(ellipse at center, rgba(80, 40, 40, 0.7) 0%, rgba(60, 30, 30, 0.85) 100%);
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #8B4513, #d2691e, #8B4513) 1;
+            border-radius: 0;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            font-weight: 600;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                inset 0 0 30px rgba(255, 180, 80, 0.2),
+                0 0 30px rgba(60, 30, 30, 0.8);
+            color: #f5f1e8;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .notice::before {
+            content: '⚠ ⚠ ⚠';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d2691e;
+            letter-spacing: 1rem;
+            font-size: 1rem;
+            animation: candleGlow 8s ease-in-out infinite;
+        }
+
+        .notice strong {
+            color: #d2691e;
+            text-shadow: 
+                0 0 10px rgba(255, 180, 80, 0.7),
+                0 0 20px rgba(210, 105, 30, 0.4);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .volunteer-section {
+            background: 
+                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%);
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
+            border-radius: 0;
+            padding: 4rem;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(15px);
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.2),
+                0 0 40px rgba(60, 45, 30, 0.8);
+        }
+
+        .volunteer-section::before {
+            content: '◆ ◇ ◆ ◇ ◆ ◇ ◆';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c8941f;
+            letter-spacing: 0.8rem;
+            font-size: 0.8rem;
+            animation: candleGlow 12s ease-in-out infinite;
+        }
+
+        .volunteer-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #c8941f;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.7),
+                0 0 40px rgba(255, 200, 100, 0.3);
+            animation: candleGlow 11s ease-in-out infinite;
+        }
+
+        .volunteer-section p {
+            font-size: 1.2rem;
+            color: #f5f1e8;
+            line-height: 1.7;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-link {
+            color: #c8941f;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-shadow: 
+                0 0 10px rgba(255, 180, 80, 0.5),
+                0 0 20px rgba(255, 200, 100, 0.2);
+        }
+
+        .contact-link:hover {
+            color: #8b4513;
+            text-shadow: 
+                0 0 15px rgba(255, 180, 80, 0.9),
+                0 0 30px rgba(255, 200, 100, 0.4);
+        }
+
+        footer {
+            background: 
+                linear-gradient(180deg, transparent 0%, rgba(60, 45, 30, 0.9) 50%, rgba(40, 30, 20, 0.95) 100%);
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, transparent, #c8941f, #e6bc3a, #c8941f, transparent) 1;
+            color: #f5f1e8;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 6rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        footer::before {
+            content: '◆ ◇ ❦ ◇ ◆';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c8941f;
+            letter-spacing: 1rem;
+            font-size: 1rem;
+            animation: candleGlow 10s ease-in-out infinite;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: calc(200px + 100%) 0; }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            background-size: 200px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes candleFlicker {
+            0% { 
+                opacity: 0.85;
+                transform: scale(1) rotate(0deg);
+            }
+            12% { 
+                opacity: 0.92;
+                transform: scale(1.01) rotate(0.2deg);
+            }
+            25% { 
+                opacity: 0.78;
+                transform: scale(0.99) rotate(-0.15deg);
+            }
+            38% { 
+                opacity: 0.88;
+                transform: scale(1.005) rotate(0.1deg);
+            }
+            50% { 
+                opacity: 0.82;
+                transform: scale(0.995) rotate(-0.1deg);
+            }
+            63% { 
+                opacity: 0.91;
+                transform: scale(1.008) rotate(0.18deg);
+            }
+            75% { 
+                opacity: 0.79;
+                transform: scale(0.997) rotate(-0.12deg);
+            }
+            88% { 
+                opacity: 0.86;
+                transform: scale(1.002) rotate(0.08deg);
+            }
+            100% { 
+                opacity: 0.85;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes candleGlow {
+            0% { 
+                text-shadow: 
+                    0 0 30px rgba(255, 180, 80, 0.9),
+                    0 0 60px rgba(255, 200, 100, 0.7);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 35px rgba(255, 160, 60, 0.95),
+                    0 0 70px rgba(255, 190, 90, 0.75);
+            }
+            100% { 
+                text-shadow: 
+                    0 0 30px rgba(255, 180, 80, 0.9),
+                    0 0 60px rgba(255, 200, 100, 0.7);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .hero h1 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+                text-shadow: 
+                    0 0 25px rgba(255, 180, 80, 0.6),
+                    0 0 50px rgba(255, 200, 100, 0.4),
+                    0 0 80px rgba(255, 220, 120, 0.25),
+                    0 0 110px rgba(255, 240, 140, 0.15);
+            }
+
+            .hero h1::before {
+                font-size: 1rem;
+                letter-spacing: 0.5rem;
+                top: -1.5rem;
+            }
+
+            .event-header {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .event-header::before,
+            .event-header::after {
+                display: none;
+            }
+
+            .challenge {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .houses-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .house-card {
+                padding: 2rem;
+            }
+
+            .story-section {
+                padding: 2.5rem;
+            }
+
+            .story-section h2 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .story-section h2::before,
+            .story-section h2::after {
+                display: none;
+            }
+
+            .story-section p:first-of-type::first-letter {
+                font-size: 3rem;
+                line-height: 2.5rem;
+                margin: 0.3rem -0.1rem 0 0;
+            }
+
+            .dress-code,
+            .volunteer-section {
+                padding: 2.5rem;
+            }
+
+            .dress-code h2,
+            .volunteer-section h2 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .notice {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <main class="container">
+        <section class="hero" id="home">
+            <div class="event-header">Lighthaven + the Classics Department present</div>
+            <h1>The Night Court</h1>
+            <div class="tagline">An All Hallows' Eve Revelry</div>
+            <div class="challenge">We challenge you to suffer beautifully.</div>
+        </section>
+
+        <section class="story-section">
+            <p>In a foreign land, in the distant past, there was once a renowned institution known as the Court of Night-Blooming Flowers, or the Night Court. Spanning an entire mountainside, the Night Court was home to a number of Houses that catered to patrons seeking pleasure, pain, and beauty.</p>
+            
+            <p>For one night only, the fabled Night Court will intersect with our world once again in the sprawling gardens of Lighthaven.</p>
+            
+            <p>From the production team who brought you the prediction market dating show Bet on Love comes an immersive All Hallows' Eve party designed to tip you off the ledge of the mundane.</p>
+            
+            <p>Wander through decorated rooms and perfumed gardens, sampling the skills of our adepts. Men and women trained in the arts of mystery and persona will guide you through sensual experiences, confounding games, humorous dialogues, and much more.</p>
+        </section>
+
+        <section class="dress-code" id="dress">
+            <h2>Attire & Aesthetic</h2>
+            <p>Dress in attire that evokes mystery, fantasy, or refinement. Gothic ballgowns, tuxedos, fallen angels, regal demons draped in gold, faeries adorned with gossamer and thorn.</p>
+        </section>
+
+        <div class="notice">
+            <strong>Note:</strong> This is NOT a sex party. However, you can expect strange conversational and sensory experiences that occasionally border on the provocative. Think of it as a playful, PG-13-rated romp through a carnival of enchantment.
+        </div>
+
+        <section class="houses-section" id="houses">
+            <h2>Which House calls to you?</h2>
+            
+            <div class="houses-grid">
+                <div class="house-card">
+                    <h3>Orchis House</h3>
+                    <p>The merry pranksters of the Night Court.</p>
+                </div>
+
+                <div class="house-card">
+                    <h3>Bryony House</h3>
+                    <p>Masters of wealth, hosts of auctions and economic games.</p>
+                </div>
+
+                <div class="house-card">
+                    <h3>Mirabilis House</h3>
+                    <p>A humble shop front for the bleeding edge of being.</p>
+                </div>
+
+                <div class="house-card">
+                    <h3>Gentian House</h3>
+                    <p>The home of mysticism and prophetic dreams.</p>
+                </div>
+
+                <div class="house-card">
+                    <h3>Mandrake House</h3>
+                    <p>Temple of the All-Suffering.</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; font-style: italic;">These are only a sample of the houses on offer. More will be announced at a later time.</p>
+        </section>
+
+        <section class="story-section">
+            <h2>Secrets & Mysteries</h2>
+            <p>This is a night designed in equal measure for love and fear. However, not all is as it appears. There may be secrets for you to discover that take you deeper into the world—rare white flowers that bloom in the night, an old crone with a message of ruin, spies carrying secrets in their sleeves.</p>
+            
+            <p style="text-align: center; font-style: italic; margin-top: 2rem;">Inspired by the world of the fantasy novel Kushiel's Dart, ornamented with original Bay Area-relevant twists.</p>
+        </section>
+
+        <section class="volunteer-section" id="volunteer">
+            <h2>Join Our Court</h2>
+            <p>If you're interested in volunteering in exchange for a discounted ticket, reach out to <a href="mailto:classicsdept@proton.me" class="contact-link">classicsdept@proton.me</a>. We'll need help with decor, intake, and cleanup. Let us know!</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><a href="http://www.classics-department.com" class="contact-link">www.classics-department.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+
+        // Add hover effect to house cards
+        document.querySelectorAll('.house-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'radial-gradient(ellipse at center, rgba(100, 75, 50, 0.8) 0%, rgba(80, 60, 40, 0.9) 100%)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%)';
+            });
+        });
+    </script>
+</body>
+</html> 
