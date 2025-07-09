@@ -249,15 +249,15 @@
 
         .story-section {
             background: 
-                /* Overlay for readability */
-                radial-gradient(ellipse at top, rgba(80, 60, 40, 0.4) 0%, rgba(60, 45, 30, 0.6) 100%),
-                /* Parchment background image */
-                url('Nightcourt Images/parchment.png');
-            background-size: cover;
+                /* Light overlay for subtle darkening */
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+                /* Procession background image */
+                url('Nightcourt Images/procession.png');
+            background-size: 80%;
             background-position: center;
             background-repeat: no-repeat;
-            filter: contrast(1.3) brightness(1.1);
-            backdrop-filter: blur(10px);
+            background-attachment: fixed;
+            backdrop-filter: blur(2px);
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
             border-radius: 0;
@@ -309,8 +309,10 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-shadow: 
-                0 0 20px rgba(255, 180, 80, 0.7),
-                0 0 40px rgba(255, 200, 100, 0.3);
+                0 0 30px rgba(255, 180, 80, 1),
+                0 0 60px rgba(255, 200, 100, 0.8),
+                0 0 90px rgba(255, 220, 120, 0.6),
+                0 0 120px rgba(255, 240, 140, 0.4);
             position: relative;
             animation: candleGlow 10s ease-in-out infinite;
         }
@@ -337,24 +339,17 @@
         .story-section p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            margin-left: 180px;
-            margin-right: 120px;
+            margin-left: 0;
+            margin-right: 0;
             text-align: justify;
             line-height: 1.8;
-            text-indent: 2rem;
-            color: #d4c4a8;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-        }
-
-        .story-section p:nth-child(2),
-        .story-section p:nth-child(3),
-        .story-section p:nth-child(4) {
-            margin-right: 70px;
-        }
-
-        .story-section p:last-child {
-            margin-left: 250px;
-            margin-right: 100px;
+            text-indent: 0;
+            color: #f5f1e8;
+            text-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 10px rgba(0, 0, 0, 0.9);
         }
 
 
@@ -846,6 +841,7 @@
         </section>
 
         <section class="story-section">
+            <h2>History Of The Nightcourt</h2>
             <p>In a foreign land, in the distant past, there was once a renowned institution known as the Court of Night-Blooming Flowers, or the Night Court. Spanning an entire mountainside, the Night Court was home to a number of Houses that catered to patrons seeking pleasure, pain, and beauty.</p>
             
             <p>For one night only, the fabled Night Court will intersect with our world once again in the sprawling gardens of Lighthaven.</p>
