@@ -21,7 +21,7 @@
                 /* Subtle overlay for readability */
                 linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
                 /* Background image */
-                url('Grainy black landscape.png');
+                url('Nightcourt Images/Grainy black landscape.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -159,10 +159,45 @@
             font-size: 1.8rem;
             color: #e8dcc0;
             font-style: italic;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             animation: fadeInUp 1s ease-out 0.4s both;
             letter-spacing: 1px;
             text-shadow: 0 0 15px rgba(93, 64, 55, 0.4);
+        }
+
+        .hero .event-date {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #d4af37;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.5s both, candleGlow 11s ease-in-out infinite;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.6),
+                0 0 40px rgba(255, 200, 100, 0.3),
+                0 0 60px rgba(255, 220, 120, 0.2);
+            position: relative;
+        }
+
+        .hero .event-date::before,
+        .hero .event-date::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #c8941f;
+            font-size: 1rem;
+            animation: candleGlow 9s ease-in-out infinite;
+        }
+
+        .hero .event-date::before {
+            left: -2.5rem;
+        }
+
+        .hero .event-date::after {
+            right: -2.5rem;
         }
 
         .challenge {
@@ -217,7 +252,7 @@
                 /* Overlay for readability */
                 radial-gradient(ellipse at top, rgba(80, 60, 40, 0.4) 0%, rgba(60, 45, 30, 0.6) 100%),
                 /* Parchment background image */
-                url('parchment.png');
+                url('Nightcourt Images/parchment.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -728,6 +763,17 @@
                 display: none;
             }
 
+            .hero .event-date {
+                font-size: 1.6rem;
+                letter-spacing: 2px;
+                margin-bottom: 2rem;
+            }
+
+            .hero .event-date::before,
+            .hero .event-date::after {
+                display: none;
+            }
+
             .challenge {
                 font-size: 1.2rem;
                 letter-spacing: 1px;
@@ -788,6 +834,7 @@
             <div class="event-header">Lighthaven + the Classics Department present</div>
             <h1>The Night Court</h1>
             <div class="tagline">An All Hallows' Eve Revelry</div>
+            <div class="event-date">Nov 1st 2025</div>
             <div class="challenge">We challenge you to suffer beautifully.</div>
         </section>
 
