@@ -476,10 +476,17 @@
 
         .dress-code {
             background: 
-                radial-gradient(ellipse at center, rgba(70, 50, 80, 0.7) 0%, rgba(50, 35, 60, 0.85) 100%);
-            backdrop-filter: blur(15px);
+                /* Darker overlay for birthday party image */
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                /* Birthday party background image */
+                url('Nightcourt Images/birthday party.png');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(2px);
             border: 3px solid transparent;
-            border-image: linear-gradient(45deg, #6b46c1, #c8941f, #6b46c1) 1;
+            border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
             border-radius: 0;
             padding: 4rem;
             margin: 4rem 0;
@@ -487,7 +494,7 @@
             position: relative;
             box-shadow: 
                 inset 0 0 50px rgba(255, 180, 80, 0.2),
-                0 0 40px rgba(50, 35, 60, 0.8);
+                0 0 30px rgba(60, 45, 30, 0.8);
         }
 
         .dress-code::before {
@@ -510,8 +517,10 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-shadow: 
-                0 0 20px rgba(255, 180, 80, 0.7),
-                0 0 40px rgba(107, 70, 193, 0.4);
+                0 0 30px rgba(255, 180, 80, 1),
+                0 0 60px rgba(255, 200, 100, 0.8),
+                0 0 90px rgba(255, 220, 120, 0.6),
+                0 0 120px rgba(255, 240, 140, 0.4);
             animation: candleGlow 11s ease-in-out infinite;
         }
 
@@ -520,7 +529,11 @@
             color: #f5f1e8;
             line-height: 1.7;
             font-style: italic;
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 10px rgba(0, 0, 0, 0.9);
         }
 
         .notice {
