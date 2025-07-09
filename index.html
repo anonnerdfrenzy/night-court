@@ -248,15 +248,7 @@
         }
 
         .story-section {
-            background: 
-                /* Light overlay for subtle darkening */
-                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-                /* Procession background image */
-                url('Nightcourt Images/Procession.png');
-            background-size: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
             backdrop-filter: blur(2px);
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
@@ -265,9 +257,26 @@
             margin-bottom: 4rem;
             text-align: left;
             position: relative;
+            overflow: hidden;
             box-shadow: 
                 inset 0 0 50px rgba(255, 180, 80, 0.2),
                 0 0 30px rgba(60, 45, 30, 0.8);
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('Nightcourt Images/Procession.png');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+            transform: translateZ(0);
         }
 
         .story-section::before {
@@ -475,15 +484,7 @@
         }
 
         .dress-code {
-            background: 
-                /* Darker overlay for birthday party image */
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-                /* Birthday party background image */
-                url('Nightcourt Images/birthday party.png');
-            background-size: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
             backdrop-filter: blur(2px);
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
@@ -492,9 +493,26 @@
             margin: 4rem 0;
             text-align: center;
             position: relative;
+            overflow: hidden;
             box-shadow: 
                 inset 0 0 50px rgba(255, 180, 80, 0.2),
                 0 0 30px rgba(60, 45, 30, 0.8);
+        }
+
+        .dress-code::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('Nightcourt Images/birthday party.png');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+            transform: translateZ(0);
         }
 
         .dress-code::before {
@@ -840,17 +858,69 @@
             }
         }
 
-        .secrets-section {
-            background: 
-                /* Light overlay for subtle darkening */
-                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-                /* Actress dead at the opera background image */
-                url('Nightcourt Images/Actress dead at the opera.png');
+        .secrets-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('Nightcourt Images/Actress dead at the opera.png');
             background-size: 80%;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            z-index: -1;
+            transform: translateZ(0);
         }
+
+        /* Safari-specific: disable parallax completely */
+        @supports (-webkit-touch-callout: none) {
+            .story-section,
+            .dress-code,
+            .secrets-section {
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+            }
+            
+            .story-section::before,
+            .dress-code::before,
+            .secrets-section::before {
+                display: none;
+            }
+            
+            .story-section {
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+                    url('Nightcourt Images/Procession.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+            }
+            
+            .dress-code {
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                    url('Nightcourt Images/birthday party.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+            }
+            
+            .secrets-section {
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+                    url('Nightcourt Images/Actress dead at the opera.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+            }
+        }
+
+
     </style>
 </head>
 <body>
