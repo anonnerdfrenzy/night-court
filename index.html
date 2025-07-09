@@ -21,7 +21,7 @@
                 /* Subtle overlay for readability */
                 linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
                 /* Background image */
-                url('Nightcourt Images/Grainy black landscape.png');
+                url('Nightcourt Images/grainy black landscape.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -252,7 +252,7 @@
                 /* Light overlay for subtle darkening */
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
                 /* Procession background image */
-                url('Nightcourt Images/Procession.png');
+                url('Nightcourt Images/procession.png');
             background-size: 80%;
             background-position: center;
             background-repeat: no-repeat;
@@ -845,27 +845,16 @@
                 /* Light overlay for subtle darkening */
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
                 /* Actress dead at the opera background image */
-                url('Nightcourt Images/Actress dead at the opera.png');
+                url('Nightcourt Images/actress dead at the opera.png');
             background-size: 80%;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
 
-        /* Safari-specific fixes - disable parallax completely */
-        @supports (-webkit-touch-callout: none) {
-            .story-section,
-            .dress-code,
-            .secrets-section {
-                background-attachment: scroll !important;
-                background-size: cover !important;
-                background-position: center !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                transform: none !important;
-                will-change: auto !important;
-            }
-        }
+
+
+
     </style>
 </head>
 <body>
