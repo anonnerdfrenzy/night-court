@@ -77,9 +77,10 @@
             width: 60vw;
             margin-left: auto;
             margin-right: auto;
-            height: auto;
+            height: 100vh;
             opacity: 1;
             position: fixed;
+            object-fit: cover;
         }
 
         .bg-secrets {
@@ -89,9 +90,10 @@
             width: 60vw;
             margin-left: auto;
             margin-right: auto;
-            height: auto;
+            height: 100vh;
             opacity: 1;
             position: fixed;
+            object-fit: cover;
         }
 
 
@@ -301,7 +303,8 @@
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
             margin-bottom: 4rem;
             position: relative;
-            clip-path: inset(0px);
+            clip-path: inset(0px 0px 0px 0px);
+            overflow: hidden;
         }
 
         .story-content {
@@ -519,7 +522,8 @@
                 linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
             margin: 4rem 0;
             position: relative;
-            clip-path: inset(0px);
+            clip-path: inset(0px 0px 0px 0px);
+            overflow: hidden;
         }
 
         .dress-content {
@@ -736,9 +740,17 @@
         @media (max-width: 768px) {
             /* Background image responsive adjustments */
             .bg-story, .bg-dress, .bg-secrets {
-                width: 80vw;
+                width: 120vw;
+                height: 100vh;
                 opacity: 1;
                 position: fixed;
+                object-fit: cover;
+            }
+
+            /* Ensure sections maintain full clip area */
+            .story-section, .dress-code, .secrets-section {
+                clip-path: inset(0px 0px 0px 0px);
+                overflow: hidden;
             }
 
             .hero h1 {
@@ -833,7 +845,8 @@
             background: 
                 /* Light overlay for subtle darkening */
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-            clip-path: inset(0px);
+            clip-path: inset(0px 0px 0px 0px);
+            overflow: hidden;
         }
 
         .secrets-content {
