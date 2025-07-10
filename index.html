@@ -53,6 +53,8 @@
             width: 100%;
             height: 100%;
             z-index: -2;
+            opacity: 0;
+            animation: backgroundFadeIn 2s ease-in-out 0.5s forwards;
         }
 
         .bg-story {
@@ -704,6 +706,15 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes backgroundFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
 
