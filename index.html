@@ -96,6 +96,21 @@
             object-fit: cover;
         }
 
+        /* House background images */
+        .bg-house {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            width: 120%;
+            height: 120%;
+            opacity: 0.5;
+            object-fit: cover;
+            z-index: -1;
+            filter: blur(2px);
+            transition: all 0.4s ease;
+        }
+
 
 
         .container {
@@ -430,7 +445,7 @@
 
         .house-card {
             background: 
-                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%);
+                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.8) 0%, rgba(60, 45, 30, 0.9) 100%);
             border: 2px solid transparent;
             border-image: linear-gradient(135deg, #8b4513, #c8941f, #8b4513) 1;
             padding: 3rem;
@@ -439,9 +454,32 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            clip-path: inset(0px 0px 0px 0px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             box-shadow: 
                 inset 0 0 30px rgba(255, 180, 80, 0.2),
                 0 10px 30px rgba(60, 45, 30, 0.7);
+        }
+
+        .house-content {
+            z-index: 2;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .house-title {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .house-description {
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: none;
         }
 
         .house-card::before {
@@ -474,13 +512,30 @@
         }
 
         .house-card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-8px) scale(1.3);
             border-image: linear-gradient(135deg, #e6bc3a, #c8941f, #e6bc3a) 1;
+            justify-content: space-between;
+            z-index: 10;
             box-shadow: 
                 inset 0 0 40px rgba(255, 180, 80, 0.3),
                 0 20px 40px rgba(255, 180, 80, 0.4),
                 0 0 80px rgba(255, 200, 100, 0.25),
                 0 0 120px rgba(255, 220, 120, 0.15);
+        }
+
+        .house-card:hover .bg-house {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.9;
+            filter: blur(0px);
+        }
+
+        .house-card:hover .house-title {
+            opacity: 0;
+        }
+
+        .house-card:hover .house-description {
+            transform: translateY(30px);
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.9));
         }
 
         .house-card h3 {
@@ -835,6 +890,35 @@
                 font-size: 0.8rem;
             }
 
+            /* House background images on mobile */
+            .bg-house {
+                width: 130%;
+                height: 130%;
+                opacity: 0.4;
+                filter: blur(2px);
+            }
+
+            .house-card:hover .bg-house {
+                opacity: 0.8;
+                filter: blur(0px);
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            .house-card:hover {
+                transform: translateY(-4px) scale(1.2);
+                justify-content: space-between;
+                z-index: 10;
+            }
+
+            .house-card:hover .house-title {
+                opacity: 0;
+            }
+
+            .house-card:hover .house-description {
+                transform: translateY(20px);
+                filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.9));
+            }
+
             .story-section h2 {
                 font-size: 2rem;
                 letter-spacing: 2px;
@@ -935,28 +1019,43 @@
             
             <div class="houses-grid">
                 <div class="house-card">
-                    <h3>Orchis House</h3>
-                    <p>The merry pranksters of the Night Court.</p>
+                    <img src="./house-images/orchis.png" alt="" class="bg-image bg-house">
+                    <div class="house-content">
+                        <h3 class="house-title">Orchis House</h3>
+                        <p class="house-description">The merry pranksters of the Night Court.</p>
+                    </div>
                 </div>
 
                 <div class="house-card">
-                    <h3>Bryony House</h3>
-                    <p>Masters of wealth, hosts of auctions and economic games.</p>
+                    <img src="./house-images/bryony.png" alt="" class="bg-image bg-house">
+                    <div class="house-content">
+                        <h3 class="house-title">Bryony House</h3>
+                        <p class="house-description">Masters of wealth, hosts of auctions and economic games.</p>
+                    </div>
                 </div>
 
                 <div class="house-card">
-                    <h3>Mirabilis House</h3>
-                    <p>A humble shop front for the bleeding edge of being.</p>
+                    <img src="./house-images/mirabilis.png" alt="" class="bg-image bg-house">
+                    <div class="house-content">
+                        <h3 class="house-title">Mirabilis House</h3>
+                        <p class="house-description">A humble shop front for the bleeding edge of being.</p>
+                    </div>
                 </div>
 
                 <div class="house-card">
-                    <h3>Gentian House</h3>
-                    <p>The home of mysticism and prophetic dreams.</p>
+                    <img src="./house-images/gentian.png" alt="" class="bg-image bg-house">
+                    <div class="house-content">
+                        <h3 class="house-title">Gentian House</h3>
+                        <p class="house-description">The home of mysticism and prophetic dreams.</p>
+                    </div>
                 </div>
 
                 <div class="house-card">
-                    <h3>Mandrake House</h3>
-                    <p>Temple of the All-Suffering.</p>
+                    <img src="./house-images/mandrake.png" alt="" class="bg-image bg-house">
+                    <div class="house-content">
+                        <h3 class="house-title">Mandrake House</h3>
+                        <p class="house-description">Temple of the All-Suffering.</p>
+                    </div>
                 </div>
             </div>
             
@@ -987,20 +1086,7 @@
     </footer>
 
     <script>
-
-
-
-
-        // Add hover effect to house cards
-        document.querySelectorAll('.house-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'radial-gradient(ellipse at center, rgba(100, 75, 50, 0.8) 0%, rgba(80, 60, 40, 0.9) 100%)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%)';
-            });
-        });
+        // House card hover effects are now handled by CSS
     </script>
 </body>
 </html> 
