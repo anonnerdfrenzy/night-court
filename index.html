@@ -19,13 +19,7 @@
             color: #f5f1e8;
             background: 
                 /* Subtle overlay for readability */
-                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                /* Background image */
-                url('Nightcourt Images/grainy black landscape.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
             min-height: 100vh;
             position: relative;
         }
@@ -41,6 +35,60 @@
             background: transparent;
             pointer-events: none;
             z-index: -1;
+        }
+
+        /* Background image positioning classes */
+        .bg-image {
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .bg-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .bg-story {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100vh;
+            opacity: 0.6;
+            position: fixed;
+            object-fit: cover;
+        }
+
+        .bg-dress {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            opacity: 0.5;
+            position: fixed;
+        }
+
+        .bg-secrets {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            opacity: 0.6;
+            position: fixed;
         }
 
 
@@ -116,7 +164,6 @@
             transform: translateY(-50%);
             color: #c8941f;
             font-size: 0.8rem;
-            animation: candleGlow 8s ease-in-out infinite;
         }
 
         .event-header::before {
@@ -137,7 +184,7 @@
                 0 0 60px rgba(255, 200, 100, 0.4),
                 0 0 100px rgba(255, 220, 120, 0.25),
                 0 0 140px rgba(255, 240, 140, 0.15);
-            animation: fadeInUp 1s ease-out 0.2s both, candleGlow 10s ease-in-out infinite;
+            animation: fadeInUp 1s ease-out 0.2s both;
             line-height: 1.1;
             letter-spacing: 4px;
             position: relative;
@@ -152,7 +199,6 @@
             font-size: 1.5rem;
             color: #c8941f;
             letter-spacing: 1rem;
-            animation: candleGlow 9s ease-in-out infinite;
         }
 
         .hero .tagline {
@@ -171,7 +217,7 @@
             color: #d4af37;
             font-weight: 500;
             margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out 0.5s both, candleGlow 11s ease-in-out infinite;
+            animation: fadeInUp 1s ease-out 0.5s both;
             letter-spacing: 4px;
             text-transform: uppercase;
             text-shadow: 
@@ -189,7 +235,6 @@
             transform: translateY(-50%);
             color: #c8941f;
             font-size: 1rem;
-            animation: candleGlow 9s ease-in-out infinite;
         }
 
         .hero .event-date::before {
@@ -205,7 +250,7 @@
             color: #c8941f;
             font-weight: 600;
             margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out 0.6s both, candleGlow 12s ease-in-out infinite;
+            animation: fadeInUp 1s ease-out 0.6s both;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
@@ -250,19 +295,17 @@
         .story-section {
             background: 
                 /* Light overlay for subtle darkening */
-                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-                /* Procession background image */
-                url('Nightcourt Images/procession.png');
-            background-size: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            backdrop-filter: blur(2px);
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+            margin-bottom: 4rem;
+            position: relative;
+            clip-path: inset(0px);
+        }
+
+        .story-content {
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
             border-radius: 0;
             padding: 4rem;
-            margin-bottom: 4rem;
             text-align: left;
             position: relative;
             box-shadow: 
@@ -270,7 +313,7 @@
                 0 0 30px rgba(60, 45, 30, 0.8);
         }
 
-        .story-section::before {
+        .story-content::before {
             content: '◆ ◆ ◆ ◆ ◆';
             position: absolute;
             top: 1rem;
@@ -279,10 +322,9 @@
             color: #c8941f;
             letter-spacing: 1rem;
             font-size: 0.8rem;
-            animation: candleGlow 11s ease-in-out infinite;
         }
 
-        .story-section::after {
+        .story-content::after {
             content: '';
             position: absolute;
             top: 0;
@@ -314,7 +356,6 @@
                 0 0 90px rgba(255, 220, 120, 0.6),
                 0 0 120px rgba(255, 240, 140, 0.4);
             position: relative;
-            animation: candleGlow 10s ease-in-out infinite;
         }
 
         .story-section h2::before,
@@ -325,7 +366,6 @@
             transform: translateY(-50%);
             font-size: 1.5rem;
             color: #c8941f;
-            animation: candleGlow 9s ease-in-out infinite;
         }
 
         .story-section h2::before {
@@ -367,7 +407,6 @@
             text-shadow: 
                 0 0 20px rgba(255, 180, 80, 0.7),
                 0 0 40px rgba(255, 200, 100, 0.3);
-            animation: candleGlow 8s ease-in-out infinite;
         }
 
         .houses-grid {
@@ -386,7 +425,6 @@
         .house-card {
             background: 
                 radial-gradient(ellipse at center, rgba(80, 60, 40, 0.7) 0%, rgba(60, 45, 30, 0.85) 100%);
-            backdrop-filter: blur(15px);
             border: 2px solid transparent;
             border-image: linear-gradient(135deg, #8b4513, #c8941f, #8b4513) 1;
             padding: 3rem;
@@ -423,7 +461,6 @@
             letter-spacing: 0.5rem;
             font-size: 0.6rem;
             opacity: 0.7;
-            animation: candleGlow 12s ease-in-out infinite;
         }
 
         .house-card:hover::before {
@@ -452,7 +489,6 @@
                 0 0 30px rgba(255, 200, 100, 0.3);
             position: relative;
             margin-top: 1rem;
-            animation: candleGlow 9s ease-in-out infinite;
         }
 
         .house-card h3::after {
@@ -477,19 +513,17 @@
         .dress-code {
             background: 
                 /* Darker overlay for birthday party image */
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-                /* Birthday party background image */
-                url('Nightcourt Images/birthday party.png');
-            background-size: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            backdrop-filter: blur(2px);
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+            margin: 4rem 0;
+            position: relative;
+            clip-path: inset(0px);
+        }
+
+        .dress-content {
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
             border-radius: 0;
             padding: 4rem;
-            margin: 4rem 0;
             text-align: center;
             position: relative;
             box-shadow: 
@@ -497,7 +531,7 @@
                 0 0 30px rgba(60, 45, 30, 0.8);
         }
 
-        .dress-code::before {
+        .dress-content::before {
             content: '❦ ❦ ❦ ❦ ❦ ❦ ❦';
             position: absolute;
             top: 1rem;
@@ -506,7 +540,6 @@
             color: #6b46c1;
             letter-spacing: 1rem;
             font-size: 0.8rem;
-            animation: candleGlow 10s ease-in-out infinite;
         }
 
         .dress-code h2 {
@@ -521,7 +554,6 @@
                 0 0 60px rgba(255, 200, 100, 0.8),
                 0 0 90px rgba(255, 220, 120, 0.6),
                 0 0 120px rgba(255, 240, 140, 0.4);
-            animation: candleGlow 11s ease-in-out infinite;
         }
 
         .dress-code p {
@@ -546,7 +578,6 @@
             margin: 3rem 0;
             font-weight: 600;
             position: relative;
-            backdrop-filter: blur(10px);
             box-shadow: 
                 inset 0 0 30px rgba(255, 180, 80, 0.2),
                 0 0 30px rgba(60, 30, 30, 0.8);
@@ -563,7 +594,6 @@
             color: #d2691e;
             letter-spacing: 1rem;
             font-size: 1rem;
-            animation: candleGlow 8s ease-in-out infinite;
         }
 
         .notice strong {
@@ -585,7 +615,6 @@
             margin: 4rem 0;
             text-align: center;
             position: relative;
-            backdrop-filter: blur(15px);
             box-shadow: 
                 inset 0 0 50px rgba(255, 180, 80, 0.2),
                 0 0 40px rgba(60, 45, 30, 0.8);
@@ -600,7 +629,6 @@
             color: #c8941f;
             letter-spacing: 0.8rem;
             font-size: 0.8rem;
-            animation: candleGlow 12s ease-in-out infinite;
         }
 
         .volunteer-section h2 {
@@ -613,7 +641,6 @@
             text-shadow: 
                 0 0 20px rgba(255, 180, 80, 0.7),
                 0 0 40px rgba(255, 200, 100, 0.3);
-            animation: candleGlow 11s ease-in-out infinite;
         }
 
         .volunteer-section p {
@@ -650,7 +677,6 @@
             padding: 3rem 0;
             margin-top: 6rem;
             position: relative;
-            backdrop-filter: blur(10px);
         }
 
         footer::before {
@@ -662,7 +688,6 @@
             color: #c8941f;
             letter-spacing: 1rem;
             font-size: 1rem;
-            animation: candleGlow 10s ease-in-out infinite;
         }
 
         footer p {
@@ -692,64 +717,17 @@
             animation: shimmer 3s infinite;
         }
 
-        @keyframes candleFlicker {
-            0% { 
-                opacity: 0.85;
-                transform: scale(1) rotate(0deg);
-            }
-            12% { 
-                opacity: 0.92;
-                transform: scale(1.01) rotate(0.2deg);
-            }
-            25% { 
-                opacity: 0.78;
-                transform: scale(0.99) rotate(-0.15deg);
-            }
-            38% { 
-                opacity: 0.88;
-                transform: scale(1.005) rotate(0.1deg);
-            }
-            50% { 
-                opacity: 0.82;
-                transform: scale(0.995) rotate(-0.1deg);
-            }
-            63% { 
-                opacity: 0.91;
-                transform: scale(1.008) rotate(0.18deg);
-            }
-            75% { 
-                opacity: 0.79;
-                transform: scale(0.997) rotate(-0.12deg);
-            }
-            88% { 
-                opacity: 0.86;
-                transform: scale(1.002) rotate(0.08deg);
-            }
-            100% { 
-                opacity: 0.85;
-                transform: scale(1) rotate(0deg);
-            }
-        }
 
-        @keyframes candleGlow {
-            0% { 
-                text-shadow: 
-                    0 0 30px rgba(255, 180, 80, 0.9),
-                    0 0 60px rgba(255, 200, 100, 0.7);
-            }
-            50% { 
-                text-shadow: 
-                    0 0 35px rgba(255, 160, 60, 0.95),
-                    0 0 70px rgba(255, 190, 90, 0.75);
-            }
-            100% { 
-                text-shadow: 
-                    0 0 30px rgba(255, 180, 80, 0.9),
-                    0 0 60px rgba(255, 200, 100, 0.7);
-            }
-        }
+
+
 
         @media (max-width: 768px) {
+            /* Background image responsive adjustments */
+            .bg-story, .bg-dress, .bg-secrets {
+                width: 80vw;
+                opacity: 0.4;
+                position: fixed;
+            }
 
             .hero h1 {
                 font-size: 3rem;
@@ -804,7 +782,7 @@
                 padding: 2rem;
             }
 
-            .story-section {
+            .story-content, .dress-content, .secrets-content {
                 padding: 2.5rem;
             }
 
@@ -824,7 +802,6 @@
                 margin: 0.3rem -0.1rem 0 0;
             }
 
-            .dress-code,
             .volunteer-section {
                 padding: 2.5rem;
             }
@@ -843,13 +820,20 @@
         .secrets-section {
             background: 
                 /* Light overlay for subtle darkening */
-                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-                /* Actress dead at the opera background image */
-                url('Nightcourt Images/actress dead at the opera.png');
-            background-size: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+            clip-path: inset(0px);
+        }
+
+        .secrets-content {
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
+            border-radius: 0;
+            padding: 4rem;
+            text-align: left;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.2),
+                0 0 30px rgba(60, 45, 30, 0.8);
         }
 
 
@@ -858,7 +842,8 @@
     </style>
 </head>
 <body>
-
+    <!-- Main background image -->
+    <img src="Nightcourt Images/grainy black landscape.png" alt="" class="bg-image bg-main">
 
     <main class="container">
         <section class="hero" id="home">
@@ -870,19 +855,27 @@
         </section>
 
         <section class="story-section">
-            <h2>History Of The Nightcourt</h2>
-            <p>In a foreign land, in the distant past, there was once a renowned institution known as the Court of Night-Blooming Flowers, or the Night Court. Spanning an entire mountainside, the Night Court was home to a number of Houses that catered to patrons seeking pleasure, pain, and beauty.</p>
-            
-            <p>For one night only, the fabled Night Court will intersect with our world once again in the sprawling gardens of Lighthaven.</p>
-            
-            <p>From the production team who brought you the prediction market dating show Bet on Love comes an immersive All Hallows' Eve party designed to tip you off the ledge of the mundane.</p>
-            
-            <p>Wander through decorated rooms and perfumed gardens, sampling the skills of our adepts. Men and women trained in the arts of mystery and persona will guide you through sensual experiences, confounding games, humorous dialogues, and much more.</p>
+            <!-- Story section background image -->
+            <img src="Nightcourt Images/procession.png" alt="" class="bg-image bg-story">
+            <div class="story-content">
+                <h2>History Of The Nightcourt</h2>
+                <p>In a foreign land, in the distant past, there was once a renowned institution known as the Court of Night-Blooming Flowers, or the Night Court. Spanning an entire mountainside, the Night Court was home to a number of Houses that catered to patrons seeking pleasure, pain, and beauty.</p>
+                
+                <p>For one night only, the fabled Night Court will intersect with our world once again in the sprawling gardens of Lighthaven.</p>
+                
+                <p>From the production team who brought you the prediction market dating show Bet on Love comes an immersive All Hallows' Eve party designed to tip you off the ledge of the mundane.</p>
+                
+                <p>Wander through decorated rooms and perfumed gardens, sampling the skills of our adepts. Men and women trained in the arts of mystery and persona will guide you through sensual experiences, confounding games, humorous dialogues, and much more.</p>
+            </div>
         </section>
 
         <section class="dress-code" id="dress">
-            <h2>Attire & Aesthetic</h2>
-            <p>Dress in attire that evokes mystery, fantasy, or refinement. Gothic ballgowns, tuxedos, fallen angels, regal demons draped in gold, faeries adorned with gossamer and thorn.</p>
+            <!-- Dress code section background image -->
+            <img src="Nightcourt Images/birthday party.png" alt="" class="bg-image bg-dress">
+            <div class="dress-content">
+                <h2>Attire & Aesthetic</h2>
+                <p>Dress in attire that evokes mystery, fantasy, or refinement. Gothic ballgowns, tuxedos, fallen angels, regal demons draped in gold, faeries adorned with gossamer and thorn.</p>
+            </div>
         </section>
 
         <div class="notice">
@@ -923,10 +916,14 @@
         </section>
 
         <section class="story-section secrets-section">
-            <h2>Secrets & Mysteries</h2>
-            <p>This is a night designed in equal measure for love and fear. However, not all is as it appears. There may be secrets for you to discover that take you deeper into the world—rare white flowers that bloom in the night, an old crone with a message of ruin, spies carrying secrets in their sleeves.</p>
-            
-            <p style="text-align: center; font-style: italic; margin-top: 2rem;">Inspired by the world of the fantasy novel Kushiel's Dart, ornamented with original Bay Area-relevant twists.</p>
+            <!-- Secrets section background image -->
+            <img src="Nightcourt Images/actress dead at the opera.png" alt="" class="bg-image bg-secrets">
+            <div class="secrets-content">
+                <h2>Secrets & Mysteries</h2>
+                <p>This is a night designed in equal measure for love and fear. However, not all is as it appears. There may be secrets for you to discover that take you deeper into the world—rare white flowers that bloom in the night, an old crone with a message of ruin, spies carrying secrets in their sleeves.</p>
+                
+                <p style="text-align: center; font-style: italic; margin-top: 2rem;">Inspired by the world of the fantasy novel Kushiel's Dart, ornamented with original Bay Area-relevant twists.</p>
+            </div>
         </section>
 
         <section class="volunteer-section" id="volunteer">
