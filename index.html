@@ -312,6 +312,38 @@
             border-top: none;
         }
 
+        .hero-btn {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: #c8941f;
+            background: transparent;
+            border: 1px solid #c8941f;
+            border-radius: 0;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 25px rgba(200, 148, 31, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover, .hero-btn:focus {
+            color: #f5f1e8;
+            background: #c8941f;
+            box-shadow: 0 0 35px rgba(200, 148, 31, 0.7);
+        }
+
+        .buy-tickets {
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .buy-rooms {
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
         .story-section {
             background: 
                 /* Light overlay for subtle darkening */
@@ -1282,7 +1314,12 @@
             <h1>The Night Court</h1>
             <div class="tagline">An All Hallows' Eve Revelry</div>
             <div class="event-date">Nov 1st 2025</div>
+            <div class="event-location" style="font-family: 'Cinzel', serif; font-size: 1.2rem; color: #e8dcc0; margin-bottom: 2.5rem; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 180, 80, 0.5); animation: fadeInUp 1s ease-out 0.55s both;">Lighthaven, Berkeley California</div>
             <div class="challenge">We challenge you to suffer beautifully.</div>
+            <div class="hero-buttons" style="margin-top: 2.5rem; display: flex; gap: 1.5rem; justify-content: center;">
+                <a href="#tickets" class="hero-btn buy-tickets">Buy Tickets</a>
+                <a href="#rooms" class="hero-btn buy-rooms">Buy Rooms</a>
+            </div>
         </section>
 
         <section class="story-section">
