@@ -571,6 +571,228 @@
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
+        /* Tickets Section */
+        .tickets-section {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+            margin: 4rem 0;
+            position: relative;
+            clip-path: inset(0px 0px 0px 0px);
+            overflow: hidden;
+        }
+
+        .bg-tickets {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100vh;
+            opacity: 0.8;
+            position: fixed;
+            object-fit: cover;
+        }
+
+        .tickets-content {
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #8b4513, #c8941f, #8b4513, #654321) 1;
+            border-radius: 0;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.2),
+                0 0 30px rgba(60, 45, 30, 0.8);
+        }
+
+        .tickets-content::before {
+            content: '❦ ◆ ❦ ◆ ❦ ◆ ❦';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c8941f;
+            letter-spacing: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .tickets-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #c8941f;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 30px rgba(255, 180, 80, 1),
+                0 0 60px rgba(255, 200, 100, 0.8),
+                0 0 90px rgba(255, 220, 120, 0.6),
+                0 0 120px rgba(255, 240, 140, 0.4);
+        }
+
+        .tickets-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ticket-card {
+            background: 
+                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.9) 0%, rgba(60, 45, 30, 0.95) 100%);
+            border: 3px solid transparent;
+            border-image: linear-gradient(135deg, #8b4513, #c8941f, #e6bc3a, #c8941f, #8b4513) 1;
+            padding: 3rem 2.5rem;
+            border-radius: 0;
+            text-align: center;
+            position: relative;
+            min-width: 320px;
+            max-width: 380px;
+            box-shadow: 
+                inset 0 0 40px rgba(255, 180, 80, 0.25),
+                0 15px 35px rgba(60, 45, 30, 0.8),
+                0 0 50px rgba(255, 180, 80, 0.15);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .ticket-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 98%,
+                    rgba(255, 180, 80, 0.08) 99%,
+                    rgba(255, 180, 80, 0.08) 100%
+                );
+            pointer-events: none;
+        }
+
+        .ticket-card::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(200, 148, 31, 0.3);
+            pointer-events: none;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-image: linear-gradient(135deg, #e6bc3a, #c8941f, #e6bc3a, #c8941f, #e6bc3a) 1;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.35),
+                0 25px 50px rgba(60, 45, 30, 0.9),
+                0 0 80px rgba(255, 180, 80, 0.25);
+        }
+
+        .ticket-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .ticket-ornament {
+            color: #c8941f;
+            font-size: 1.2rem;
+            text-shadow: 
+                0 0 15px rgba(255, 180, 80, 0.8),
+                0 0 30px rgba(255, 200, 100, 0.4);
+        }
+
+        .ticket-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #c8941f;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.8),
+                0 0 40px rgba(255, 200, 100, 0.4);
+            margin: 0;
+        }
+
+        .ticket-price {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #e6bc3a;
+            font-weight: 600;
+            margin: 2rem 0;
+            text-shadow: 
+                0 0 25px rgba(255, 180, 80, 0.9),
+                0 0 50px rgba(255, 200, 100, 0.5),
+                0 0 75px rgba(255, 220, 120, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .ticket-description {
+            margin: 2rem 0;
+        }
+
+        .ticket-description p {
+            font-size: 1.1rem;
+            color: #f5f1e8;
+            margin: 0.8rem 0;
+            font-style: italic;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 25px rgba(255, 255, 255, 0.4),
+                0 0 10px rgba(0, 0, 0, 0.8);
+            line-height: 1.5;
+        }
+
+        .ticket-footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(200, 148, 31, 0.4);
+        }
+
+        .ticket-seal {
+            color: #c8941f;
+            font-size: 1.5rem;
+            text-shadow: 
+                0 0 20px rgba(255, 180, 80, 0.8),
+                0 0 40px rgba(255, 200, 100, 0.4);
+        }
+
+        /* Patron ticket special styling */
+        .ticket-card.patron {
+            border-image: linear-gradient(135deg, #c8941f, #e6bc3a, #c8941f, #e6bc3a, #c8941f) 1;
+            background: 
+                radial-gradient(ellipse at center, rgba(100, 75, 50, 0.9) 0%, rgba(80, 60, 40, 0.95) 100%);
+            box-shadow: 
+                inset 0 0 50px rgba(255, 180, 80, 0.3),
+                0 20px 40px rgba(60, 45, 30, 0.9),
+                0 0 60px rgba(255, 180, 80, 0.2);
+        }
+
+        .ticket-card.patron:hover {
+            box-shadow: 
+                inset 0 0 60px rgba(255, 180, 80, 0.4),
+                0 30px 60px rgba(60, 45, 30, 1),
+                0 0 100px rgba(255, 180, 80, 0.3);
+        }
+
+        .ticket-card.patron .ticket-price {
+            color: #d4af37;
+            text-shadow: 
+                0 0 30px rgba(255, 180, 80, 1),
+                0 0 60px rgba(255, 200, 100, 0.6),
+                0 0 90px rgba(255, 220, 120, 0.4);
+        }
+
         .dress-code {
             background: 
                 /* Darker overlay for birthday party image */
@@ -622,12 +844,32 @@
             font-size: 1.3rem;
             color: #f5f1e8;
             line-height: 1.7;
-            font-style: italic;
             text-shadow: 
                 0 0 20px rgba(255, 255, 255, 0.8),
                 0 0 30px rgba(255, 255, 255, 0.6),
                 0 0 40px rgba(255, 255, 255, 0.4),
                 0 0 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .attire-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 500px;
+            text-align: left;
+            display: inline-block;
+        }
+        .attire-list li {
+            font-size: 1.25rem;
+            color: #f5f1e8;
+            background: rgba(60, 45, 30, 0.7);
+            border-left: 4px solid #c8941f;
+            margin: 0.7rem 0;
+            padding: 0.7rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            font-style: normal;
+            box-shadow: 0 2px 8px rgba(80,60,40,0.08);
+            text-shadow: 0 0 10px rgba(0,0,0,0.4);
         }
 
         .notice {
@@ -919,6 +1161,61 @@
                 filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.9));
             }
 
+            /* Tickets section mobile styles */
+            .bg-tickets {
+                width: 120vw;
+                height: 100vh;
+                opacity: 0.7;
+                position: fixed;
+                object-fit: cover;
+            }
+
+            .tickets-content {
+                padding: 2.5rem;
+            }
+
+            .tickets-content::before {
+                content: '❦ ◆ ❦';
+                letter-spacing: 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .tickets-content h2 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+                margin-bottom: 2rem;
+            }
+
+            .tickets-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .ticket-card {
+                padding: 2.5rem 2rem;
+                min-width: 280px;
+                max-width: 320px;
+            }
+
+            .ticket-card h3 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .ticket-price {
+                font-size: 2.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .ticket-description p {
+                font-size: 1rem;
+            }
+
+            .ticket-card:hover {
+                transform: translateY(-4px) scale(1.02);
+            }
+
             .story-section h2 {
                 font-size: 2rem;
                 letter-spacing: 2px;
@@ -1008,7 +1305,7 @@
             <img src="./nightcourt-images/birthday-party.png" alt="" class="bg-image bg-dress">
             <div class="dress-content">
                 <h2>Attire & Aesthetic</h2>
-                <p>Dress in attire that evokes mystery, fantasy, or refinement. Gothic ballgowns, tuxedos, fallen angels, regal demons draped in gold, faeries adorned with gossamer and thorn.</p>
+                <p style="font-style: normal;">Dress in attire that evokes mystery, fantasy, or refinement: gothic ballgowns, tuxedos, fallen angels, regal demons draped in gold, faeries adorned with gossamer and thorn.</p>
             </div>
         </section>
 
@@ -1070,6 +1367,51 @@
                 <p>This is a night designed in equal measure for love and fear. However, not all is as it appears. There may be secrets for you to discover that take you deeper into the world—rare white flowers that bloom in the night, an old crone with a message of ruin, spies carrying secrets in their sleeves.</p>
                 
                 <p style="text-align: center; font-style: italic; margin-top: 2rem;">Inspired by the world of the fantasy novel Kushiel's Dart, ornamented with original Bay Area-relevant twists.</p>
+            </div>
+        </section>
+
+        <section class="tickets-section" id="tickets">
+            <!-- Tickets section background image -->
+            <img src="./nightcourt-images/parchment.png" alt="" class="bg-image bg-tickets">
+            <div class="tickets-content">
+                <h2>Your Invitation Awaits</h2>
+                
+                <div class="tickets-grid">
+                    <div class="ticket-card standard">
+                        <div class="ticket-header">
+                            <div class="ticket-ornament">❦</div>
+                            <h3>Standard Guest</h3>
+                            <div class="ticket-ornament">❦</div>
+                        </div>
+                        <div class="ticket-price">$120</div>
+                        <div class="ticket-description">
+                            <p>Entry to the Night Court</p>
+                            <p>Access to all houses and experiences</p>
+                            <p>Welcome libations</p>
+                        </div>
+                        <div class="ticket-footer">
+                            <div class="ticket-seal">◆</div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-card patron">
+                        <div class="ticket-header">
+                            <div class="ticket-ornament">❦</div>
+                            <h3>Court Patron</h3>
+                            <div class="ticket-ornament">❦</div>
+                        </div>
+                        <div class="ticket-price">$1,200</div>
+                        <div class="ticket-description">
+                            <p>All standard guest privileges</p>
+                            <p>Private audience with adepts</p>
+                            <p>Exclusive patron chambers</p>
+                            <p>Ceremonial welcome</p>
+                        </div>
+                        <div class="ticket-footer">
+                            <div class="ticket-seal">◆</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
