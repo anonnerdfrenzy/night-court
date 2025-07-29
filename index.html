@@ -102,24 +102,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(1);
-            width: 120%;
-            height: 120%;
-            opacity: 0.5;
-            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            object-fit: contain;
             z-index: -1;
-            filter: blur(2px);
-            transition: all 0.4s ease;
         }
-
-
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-
 
         main {
             padding: 3rem 0;
@@ -445,8 +439,6 @@
                 0 0 10px rgba(0, 0, 0, 0.9);
         }
 
-
-
         .houses-section {
             margin: 4rem 0;
         }
@@ -463,69 +455,50 @@
         }
 
         .houses-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-items: center;
         }
         
-        .house-card {
-            flex: 0 0 280px;
-            max-width: 350px;
+        /* Position houses in 6-column grid for precise spacing */
+        .house-item:nth-child(1) { grid-column: 1 / 3; }  /* spans 2 columns */
+        .house-item:nth-child(2) { grid-column: 3 / 5; }  /* spans 2 columns */
+        .house-item:nth-child(3) { grid-column: 5 / 7; }  /* spans 2 columns */
+        .house-item:nth-child(4) { grid-column: 2 / 4; grid-row: 2; }  /* spans 2 columns, offset by 1 */
+        .house-item:nth-child(5) { grid-column: 4 / 6; grid-row: 2; }  /* spans 2 columns, creates half-house gap */
+        
+        .house-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 320px;
+            flex: 0 0 auto;
         }
 
         .house-card {
             background: 
-                radial-gradient(ellipse at center, rgba(80, 60, 40, 0.8) 0%, rgba(60, 45, 30, 0.9) 100%);
+                radial-gradient(ellipse at center, rgba(20, 15, 10, 0.9) 0%, rgba(10, 8, 5, 0.95) 100%);
             border: 2px solid transparent;
             border-image: linear-gradient(135deg, #8b4513, #c8941f, #8b4513) 1;
-            padding: 3rem;
             border-radius: 0;
-            text-align: center;
-            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             clip-path: inset(0px 0px 0px 0px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             box-shadow: 
                 inset 0 0 30px rgba(255, 180, 80, 0.2),
                 0 10px 30px rgba(60, 45, 30, 0.7);
+            width: 300px;
+            height: 400px;
+            margin: 1rem 0;
         }
 
-        .house-content {
-            z-index: 2;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            justify-content: center;
-        }
 
-        .house-title {
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        .house-description {
-            transition: transform 0.4s ease, filter 0.4s ease;
-            filter: none;
-        }
-
-        .house-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #c8941f, #e6bc3a, #c8941f, #8b4513);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
 
         .house-card::after {
             content: '◆ ◆ ◆';
@@ -539,68 +512,27 @@
             opacity: 0.7;
         }
 
-        .house-card:hover::before {
-            opacity: 1;
-        }
-
-        .house-card:hover {
-            transform: translateY(-8px) scale(1.3);
-            border-image: linear-gradient(135deg, #e6bc3a, #c8941f, #e6bc3a) 1;
-            justify-content: space-between;
-            z-index: 10;
-            box-shadow: 
-                inset 0 0 40px rgba(255, 180, 80, 0.3),
-                0 20px 40px rgba(255, 180, 80, 0.4),
-                0 0 80px rgba(255, 200, 100, 0.25),
-                0 0 120px rgba(255, 220, 120, 0.15);
-        }
-
-        .house-card:hover .bg-house {
-            transform: translate(-50%, -50%) scale(1.2);
-            opacity: 0.9;
-            filter: blur(0px);
-        }
-
-        .house-card:hover .house-title {
-            opacity: 0;
-        }
-
-        .house-card:hover .house-description {
-            transform: translateY(30px);
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.9));
-        }
-
-        .house-card h3 {
+        .house-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: #c8941f;
-            margin-bottom: 1.5rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
                 0 0 15px rgba(255, 180, 80, 0.7),
                 0 0 30px rgba(255, 200, 100, 0.3);
-            position: relative;
-            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
         }
 
-        .house-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #c8941f, transparent);
-        }
-
-        .house-card p {
+        .house-description {
             font-size: 1.1rem;
             color: #f5f1e8;
             font-style: italic;
             line-height: 1.6;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 0.5rem;
+            max-width: 300px;
         }
 
         /* Tickets Section */
@@ -1066,6 +998,21 @@
 
 
 
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .houses-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                max-width: 800px;
+            }
+            
+            /* Reset grid positioning for 4-column tablet layout */
+            .house-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+            .house-item:nth-child(2) { grid-column: 3 / 5; grid-row: 1; }
+            .house-item:nth-child(3) { grid-column: 1 / 3; grid-row: 2; }
+            .house-item:nth-child(4) { grid-column: 3 / 5; grid-row: 2; }
+            .house-item:nth-child(5) { grid-column: 2 / 4; grid-row: 3; }
+        }
+
         @media (max-width: 768px) {
             /* Background image responsive adjustments */
             .bg-story, .bg-dress, .bg-secrets {
@@ -1126,13 +1073,29 @@
             }
 
             .houses-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                max-width: 400px;
+            }
+            
+            /* Reset all grid positioning for single column */
+            .house-item:nth-child(1),
+            .house-item:nth-child(2),
+            .house-item:nth-child(3),
+            .house-item:nth-child(4),
+            .house-item:nth-child(5) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .house-item {
+                width: 100%;
+                max-width: 280px;
             }
 
             .house-card {
-                padding: 2rem;
+                width: min(250px, 85vw);
+                height: min(320px, 90vw);
             }
 
             .story-content, .dress-content, .secrets-content {
@@ -1166,31 +1129,9 @@
 
             /* House background images on mobile */
             .bg-house {
-                width: 130%;
-                height: 130%;
-                opacity: 0.4;
-                filter: blur(2px);
-            }
-
-            .house-card:hover .bg-house {
-                opacity: 0.8;
-                filter: blur(0px);
-                transform: translate(-50%, -50%) scale(1.1);
-            }
-
-            .house-card:hover {
-                transform: translateY(-4px) scale(1.2);
-                justify-content: space-between;
-                z-index: 10;
-            }
-
-            .house-card:hover .house-title {
-                opacity: 0;
-            }
-
-            .house-card:hover .house-description {
-                transform: translateY(20px);
-                filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.9));
+                width: 100%;
+                height: 100%;
+                opacity: 1;
             }
 
             /* Tickets section mobile styles */
@@ -1352,44 +1293,44 @@
             <h2>Which House calls to you?</h2>
             
             <div class="houses-grid">
-                <div class="house-card">
-                    <img src="./house-images/orchis.png" alt="" class="bg-image bg-house">
-                    <div class="house-content">
-                        <h3 class="house-title">Orchis House</h3>
-                        <p class="house-description">The merry pranksters of the Night Court.</p>
+                <div class="house-item">
+                    <h3 class="house-title">Orchis House</h3>
+                    <div class="house-card">
+                        <img src="./house-images/orchis.png" alt="" class="bg-image bg-house">
                     </div>
+                    <p class="house-description">The merry pranksters of the Night Court.</p>
                 </div>
 
-                <div class="house-card">
-                    <img src="./house-images/bryony.png" alt="" class="bg-image bg-house">
-                    <div class="house-content">
-                        <h3 class="house-title">Bryony House</h3>
-                        <p class="house-description">Masters of wealth, hosts of auctions and economic games.</p>
+                <div class="house-item">
+                    <h3 class="house-title">Bryony House</h3>
+                    <div class="house-card">
+                        <img src="./house-images/bryony.png" alt="" class="bg-image bg-house">
                     </div>
+                    <p class="house-description">Masters of wealth, hosts of auctions and economic games.</p>
                 </div>
 
-                <div class="house-card">
-                    <img src="./house-images/mirabilis.png" alt="" class="bg-image bg-house">
-                    <div class="house-content">
-                        <h3 class="house-title">Mirabilis House</h3>
-                        <p class="house-description">A humble shop front for the bleeding edge of being.</p>
+                <div class="house-item">
+                    <h3 class="house-title">Mirabilis House</h3>
+                    <div class="house-card">
+                        <img src="./house-images/mirabilis.png" alt="" class="bg-image bg-house">
                     </div>
+                    <p class="house-description">A humble shop front for the bleeding edge of being.</p>
                 </div>
 
-                <div class="house-card">
-                    <img src="./house-images/gentian.png" alt="" class="bg-image bg-house">
-                    <div class="house-content">
-                        <h3 class="house-title">Gentian House</h3>
-                        <p class="house-description">The home of mysticism and prophetic dreams.</p>
+                <div class="house-item">
+                    <h3 class="house-title">Gentian House</h3>
+                    <div class="house-card">
+                        <img src="./house-images/gentian.png" alt="" class="bg-image bg-house">
                     </div>
+                    <p class="house-description">The home of mysticism and prophetic dreams.</p>
                 </div>
 
-                <div class="house-card">
-                    <img src="./house-images/mandrake.png" alt="" class="bg-image bg-house">
-                    <div class="house-content">
-                        <h3 class="house-title">Mandrake House</h3>
-                        <p class="house-description">Temple of the All-Suffering.</p>
+                <div class="house-item">
+                    <h3 class="house-title">Mandrake House</h3>
+                    <div class="house-card">
+                        <img src="./house-images/mandrake.png" alt="" class="bg-image bg-house">
                     </div>
+                    <p class="house-description">Temple of the All-Suffering.</p>
                 </div>
             </div>
             
